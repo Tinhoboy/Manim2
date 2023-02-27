@@ -1,9 +1,3 @@
-FROM manimcommunity/manim:v0.17.2
-
-USER root
-RUN pip install notebook
-
-ARG NB_USER=manimuser
-USER ${NB_USER}
+FROM docker.io/manimcommunity/manim:v0.9.0
 
 COPY --chown=manimuser:manimuser . /manim
