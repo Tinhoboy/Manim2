@@ -1,3 +1,13 @@
-FROM docker.io/manimcommunity/manim:v0.9.0
+FROM python:3.7
 
-COPY --chown=manimuser:manimuser . /manim
+# Install Manim and Manim Circuit
+RUN pip install manim==0.11.0 manim-circuit
+
+# Set working directory
+WORKDIR /app
+
+# Copy your files to the working directory
+COPY . /app
+
+# Run your script
+CMD ["python", "your_script.py"]
